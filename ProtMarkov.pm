@@ -9,6 +9,8 @@ our $VERSION = 1.01;
 
 # 2015-03-02 v1.01
 # - for $n==1, now suffix .RAND\d+ isn't added (because it's trivial, makes sense to keep it simple)
+# 2015-06-04 (still v1.01, hadn't been posted yet)
+# - debugged $n==1 case (just now tested code, now it definitely works)
 
 use lib '.';
 use FileGz;
@@ -42,8 +44,7 @@ sub randomizeGenomeMarkov {
     while (my ($idOld, $length) = each %$id2length) {
 	# number of times we'll do this length
 	for (my $i = 0; $i < $n; $i++) {
-	    # if n==1, ID stays the same, otherwise add this numbering...
-	    my $idNew = $n == 1 ? $idOld : makeRandId($idOld, $spFmt, $i); # name the new random protein sequence
+	    my $idNew = makeRandId($idOld, $spFmt, $i); # name the new random protein sequence
 	    my $seqNew = makeRandSeq($kmer2p, $length, $pCum, $kmersCum, \%km1mer2cum); # this sub produces the k-1 Markov random sequence of desired length
 	    print $fho ">$idNew\n$seqNew\n"; # print new sequence to output
 	}
@@ -99,9 +100,12 @@ sub drawNextAa {
 sub makeFmtStr {
     # makes format string for random numbers (with zero padding for niceness)
     my ($n) = @_;
-    # for 0-padding in protein names, but count will be zero-based too so even $n = 100 should only use two digits
-    my $numSigDigits = 1 + int( log($n-1)/log(10) );
-    my $spFmt = '%0'.$numSigDigits.'d'; # the sprintf format string, calculate it once for the rest of the subroutine
+    my $spFmt; # leave undefined for n=1 case...
+    if ($n > 1) {
+	# for 0-padding in protein names, but count will be zero-based too so even $n = 100 should only use two digits
+	my $numSigDigits = 1 + int( log($n-1)/log(10) );
+	$spFmt = '%0'.$numSigDigits.'d'; # the sprintf format string, calculate it once for the rest of the subroutine
+    }
     # done, return
     return $spFmt;
 }
@@ -110,7 +114,14 @@ sub makeRandId {
     # this makes the randomized ID corresponding to a given protein and rand number (and the format that decides how many zeroes to use for padding, see makeFmtStr() to get that string)
     # chose to make a function so the format is uniform across applications
     my ($id, $spFmt, $i) = @_;
-    return $id . '.RAND' . sprintf $spFmt, $i;
+    # if n==1, ID stays the same, otherwise add this numbering...
+    # we know whether $spFmt was defined or not
+    if (defined $spFmt) {
+	return $id . '.RAND' . sprintf $spFmt, $i;
+    }
+    else {
+	return $id; # return same ID as input
+    }
 }
 
 sub getRealProtFromRandId {

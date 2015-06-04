@@ -4,9 +4,10 @@
 # RandProt is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with RandProt.  If not, see <http://www.gnu.org/licenses/>.
 
-my $VERSION = '1.00';
+my $VERSION = '1.01';
 use lib '.';
 use ProtKmer;
+use ProtMarkov;
 use strict;
 
 # report percentage of k-mers observed in a given proteome
@@ -15,7 +16,7 @@ use strict;
 my ($fiFasta, $k) = @ARGV;
 
 die "# $0 $VERSION - Compute percentage of k-mers observed in a proteome
-# RandProt ".(sprintf '%0.2f', $ProtKmer::VERSION).", viiia.org/randProt
+# RandProt ".(sprintf '%0.2f', $ProtMarkov::VERSION).", viiia.org/randProt
 # Alejandro Ochoa, John Storey, Manuel Llinás, and Mona Singh.
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
