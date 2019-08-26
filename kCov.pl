@@ -15,7 +15,8 @@ use strict;
 # get inputs from command line
 my ($fiFasta, $k) = @ARGV;
 
-die "# $0 $VERSION - Compute percentage of k-mers observed in a proteome
+unless ($k) {
+    print "# $0 $VERSION - Compute percentage of k-mers observed in a proteome
 # RandProt ".(sprintf '%0.2f', $ProtMarkov::VERSION).", viiia.org/randProt
 # Alejandro Ochoa, John Storey, Manuel Llinás, and Mona Singh.
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -30,7 +31,9 @@ Input file may be compressed with gzip, and may be specified with or without the
 extension.  Analysis is printed to STDOUT.
 
 See the online manual for more info.
-" unless $k;
+";
+    exit 0;
+}
 
 # quick validations
 $k = int $k; # force to be integers

@@ -15,7 +15,8 @@ use strict;
 # get inputs from command line
 my ($fiFasta) = @ARGV;
 
-die "# $0 $VERSION - Compute a weak upper bound on k for k-mer analysis
+unless ($fiFasta) {
+    print "# $0 $VERSION - Compute a weak upper bound on k for k-mer analysis
 # RandProt ".(sprintf '%0.2f', $ProtMarkov::VERSION).", viiia.org/randProt
 # Alejandro Ochoa, John Storey, Manuel Llinás, and Mona Singh.
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -29,7 +30,9 @@ Input file may be compressed with gzip, and may be specified with or without the
 extension.  Analysis is printed to STDOUT.
 
 See the online manual for more info.
-" unless $fiFasta;
+    ";
+    exit 0;
+}
 
 # constant
 my $verbose = 1; # will output analysis to STDOUT

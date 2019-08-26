@@ -15,7 +15,8 @@ use strict;
 # get inputs from command line
 my ($fiFasta, $foRandFasta, $k, $n) = @ARGV;
 
-die "# $0 $VERSION - Make random protein sequences from a high-order Markov model
+unless ($n) {
+    print "# $0 $VERSION - Make random protein sequences from a high-order Markov model
 # RandProt ".(sprintf '%0.2f', $ProtMarkov::VERSION).", viiia.org/randProt
 # Alejandro Ochoa, John Storey, Manuel Llinás, and Mona Singh.
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -33,7 +34,9 @@ Input file may be compressed with gzip, and may be specified with or without the
 extension.  Output file will be automatically compressed with gzip.
 
 See the online manual for more info.
-" unless $n;
+";
+    exit 0;
+}
 
 # constant
 my $comp = 'gzip';
