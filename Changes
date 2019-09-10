@@ -1,0 +1,23 @@
+Revision history for RandProt.
+
+1.00  2014-09-12
+
+ - First public release.
+
+1.01  2015-06-04
+
+ - Now the n=1 case generates files with original IDs and without suffixes.
+ - README.md was added
+ - FileGz.pm had updates unrelated to this project, which is not affected.
+
+1.01  2019-08-25
+
+ - Help/usage message of all scripts now return exit code 0 (success)
+ - Added ParseFasta::filtRepSeqs (unused by RandProt, but handy)
+ - (Yes, code version numbers were not updated).
+
+1.02  2019-09-09
+
+ - Changed official website from viiia.org to github.com (hardcoded in help messages)
+ - Added this Perl-formatted changes log to GitHub repository (previously only on viiia.org)
+
