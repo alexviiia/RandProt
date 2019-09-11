@@ -31,7 +31,4 @@ Revision history for RandProt.
  - Added sample input and output files.
  - Got rid of separate version numbers for every script.
  - Got rid of author list printed on help message.
-
-TODO:
- - add bats testing script
-   - add instructions for running it on README
+ - Added bats testing script, and instructions for running it on README

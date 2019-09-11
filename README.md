@@ -28,13 +28,18 @@ Additionally, k-mers with ambiguous amino acid codes (B, J, X, Z) are always ign
 
 # Installation
 
-You'll need Perl 5 (without additional Perl packages) and `gzip` installed.
+You'll need 
+
+- Perl 5
+- `gzip`
+- Git versioning control software (optional, to clone repository)
+- [`bats`](https://github.com/bats-core/bats-core) (optional, for testing)
+
 
 ## Cloning repository
 
 You can download a ZIP copy of this repository on GitHub.
 However, cloning the repository has many advantages.
-To do this you will need `git` installed.
 You can clone it with this command:
 ```bash
 git clone https://github.com/alexviiia/RandProt.git
@@ -48,22 +53,45 @@ git pull
 
 Each script can be run easily from the directory that contains it (and its `*.pm` perl module dependencies).
 For example, if you cloned this repository onto the local directory `RandProt/`, on a terminal you can run one of the help messages by typing:
-```
+```bash
 cd RandProt/ 
 perl -w randProt.pl # <ARGS>... 
 ```
 
 To run the scripts from other directories, you have to specify the directory containing the `*.pm` Perl modules using the `-I` option for `perl`, like so:
-```
+```bash
 cd ..
 perl -IRandProt/ -w RandProt/randProt.pl # <ARGS>...
 ```
 Note that the home directory shortcut `~` doesn't work with `-I`, but you can use `$HOME` instead.
 So if the code is in `~/RandProt/`, then this will work:
-```
+```bash
 perl -I$HOME/RandProt/ -w ~/RandProt/randProt.pl # <ARGS>...
 ```
 
+## Running tests
+
+You can run automatic tests to make sure the code is running as expected on your system.
+The specific errors may help me troubleshooting.
+
+After installing `bats` (available on most standard Linux repositories), run this command:
+```bash
+bats tests.bats
+```
+If successful, the output will look like this:
+```
+ ✓ kMax.pl help
+ ✓ kMax.pl main
+ ✓ kCov.pl help
+ ✓ kCov.pl main 5
+ ✓ kCov.pl main 4
+ ✓ kCov.pl main 3
+ ✓ randProt.pl help
+ ✓ randProt.pl main n=1
+ ✓ randProt.pl main n=2
+
+9 tests, 0 failures
+```
 
 # Running the scripts
 
