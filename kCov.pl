@@ -4,7 +4,6 @@
 # RandProt is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with RandProt.  If not, see <http://www.gnu.org/licenses/>.
 
-my $VERSION = '1.02';
 use lib '.';
 use ProtKmer;
 use ProtMarkov;
@@ -16,9 +15,8 @@ use strict;
 my ($fiFasta, $k) = @ARGV;
 
 unless ($k) {
-    print "# $0  $VERSION - Compute percentage of k-mers observed in a proteome
+    print "# $0: Compute percentage of k-mers observed in a proteome
 # RandProt ".(sprintf '%0.2f', $ProtMarkov::VERSION)." - https://github.com/alexviiia/RandProt
-# Alejandro Ochoa, John Storey, Manuel Llinás, and Mona Singh.
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Usage: perl -w $0 <input FASTA> <k>
@@ -30,7 +28,10 @@ The required inputs are
 Input file may be compressed with gzip, and may be specified with or without the .gz 
 extension.  Analysis is printed to STDOUT.
 
-See the online manual for more info.
+This script obtains the number of unique k-mers in the input file, and compares it to the 
+theoretical number of possible k-mers, 20^k.  A k with high coverage should be chosen, but 
+the largest such k is merely an upper bound, and you may want to choose a smaller k using 
+other criteria.
 ";
     exit 0;
 }

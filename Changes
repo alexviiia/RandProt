@@ -6,6 +6,7 @@ Revision history for RandProt.
 
 1.01  2015-06-04
 
+ - First commit and public version on GitHub.
  - Now the n=1 case generates files with original IDs and without suffixes.
  - README.md was added
  - FileGz.pm had updates unrelated to this project, which is not affected.
@@ -21,3 +22,16 @@ Revision history for RandProt.
  - Changed official website from viiia.org to github.com (hardcoded in help messages)
  - Added this Perl-formatted changes log to GitHub repository (previously only on viiia.org)
 
+1.03  2019-09-10
+
+ - README.md now contains the complete manual, which used to be on viiia.org (edited for brevity).
+   viiia.org version will be removed imminently.
+ - All scripts have more detailed help messages, to avoid having to go online for more info.
+   This info is replicated on README.
+ - Added sample input and output files.
+ - Got rid of separate version numbers for every script.
+ - Got rid of author list printed on help message.
+
+TODO:
+ - add bats testing script
+   - add instructions for running it on README

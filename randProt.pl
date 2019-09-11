@@ -4,7 +4,6 @@
 # RandProt is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with RandProt.  If not, see <http://www.gnu.org/licenses/>.
 
-my $VERSION = '1.02';
 use lib '.';
 use ProtKmer;
 use ProtMarkov;
@@ -16,9 +15,8 @@ use strict;
 my ($fiFasta, $foRandFasta, $k, $n) = @ARGV;
 
 unless ($n) {
-    print "# $0 $VERSION - Make random protein sequences from a high-order Markov model
-# RandProt    ".(sprintf '%0.2f', $ProtMarkov::VERSION)." - https://github.com/alexviiia/RandProt
-# Alejandro Ochoa, John Storey, Manuel Llinás, and Mona Singh.
+    print "# $0: Make random protein sequences from a high-order Markov model
+# RandProt ".(sprintf '%0.2f', $ProtMarkov::VERSION)." - https://github.com/alexviiia/RandProt
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Usage: perl -w $0 <input FASTA> <output FASTA> <k> <n>
@@ -33,7 +31,10 @@ The required inputs are
 Input file may be compressed with gzip, and may be specified with or without the .gz 
 extension.  Output file will be automatically compressed with gzip.
 
-See the online manual for more info.
+Output is the desired database of random protein sequences, with n replicates per sequence.
+Each output sequence has the same length as the corresponding input sequence.  First the 
+(k-1)-order Markov model is learned from the input data, then each sequence is drawn from 
+this model.  Output has IDs in a random order.
 ";
     exit 0;
 }

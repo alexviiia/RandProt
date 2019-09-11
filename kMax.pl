@@ -4,7 +4,6 @@
 # RandProt is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with RandProt.  If not, see <http://www.gnu.org/licenses/>.
 
-my $VERSION = '1.02';
 use lib '.';
 use ProtKmer;
 use ProtMarkov;
@@ -16,9 +15,8 @@ use strict;
 my ($fiFasta) = @ARGV;
 
 unless ($fiFasta) {
-    print "# $0  $VERSION - Compute a weak upper bound on k for k-mer analysis
+    print "# $0: Compute a weak upper bound on k for k-mer analysis
 # RandProt ".(sprintf '%0.2f', $ProtMarkov::VERSION)." - https://github.com/alexviiia/RandProt
-# Alejandro Ochoa, John Storey, Manuel Llinás, and Mona Singh.
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Usage: perl -w $0 <input FASTA>
@@ -29,8 +27,16 @@ The required inputs are
 Input file may be compressed with gzip, and may be specified with or without the .gz 
 extension.  Analysis is printed to STDOUT.
 
-See the online manual for more info.
-    ";
+For a given k, there are l = 20^k unique k-mers overall.  For a small k and a large 
+proteome, the number of amino acids l is only slightly more than the number of k-mers.
+Therefore, the maximum number of k-mers the proteome could possibly contain is
+
+                       k <= k_max = floor( log(l) / log(20) ).
+
+However, usually k must be much smaller than this upper bound. For the input FASTA file, 
+this script ouputs l and k_max.  This is a very quick rough analysis.  For a more precise 
+assessment on k-mer coverage, use kCov.pl.
+";
     exit 0;
 }
 

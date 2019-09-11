@@ -5,7 +5,7 @@
 # You should have received a copy of the GNU General Public License along with RandProt.  If not, see <http://www.gnu.org/licenses/>.
 
 package ProtMarkov;
-our $VERSION = 1.02;
+our $VERSION = 1.03;
 
 # 2015-03-02 v1.01
 # - for $n==1, now suffix .RAND\d+ isn't added (because it's trivial, makes sense to keep it simple)
