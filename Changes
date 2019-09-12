@@ -32,3 +32,7 @@ Revision history for RandProt.
  - Got rid of separate version numbers for every script.
  - Got rid of author list printed on help message.
  - Added bats testing script, and instructions for running it on README
+
+1.04  2019-09-11
+
+ - Refactored and improved help message code.  Added FindBin dependency (Perl core module).

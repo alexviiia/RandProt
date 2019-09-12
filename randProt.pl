@@ -4,6 +4,9 @@
 # RandProt is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with RandProt.  If not, see <http://www.gnu.org/licenses/>.
 
+# core Perl modules
+use FindBin ();
+# local modules
 use lib '.';
 use ProtKmer;
 use ProtMarkov;
@@ -15,11 +18,11 @@ use strict;
 my ($fiFasta, $foRandFasta, $k, $n) = @ARGV;
 
 unless ($n) {
-    print "# $0: Make random protein sequences from a high-order Markov model
-# RandProt ".(sprintf '%0.2f', $ProtMarkov::VERSION)." - https://github.com/alexviiia/RandProt
+    print "# $FindBin::Script: Make random protein sequences from a high-order Markov model
+# " . ProtMarkov::version_string() . "
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Usage: perl -w $0 <input FASTA> <output FASTA> <k> <n>
+Usage: perl -w $FindBin::Script <input FASTA> <output FASTA> <k> <n>
 
 The required inputs are
     <input FASTA>   Input protein sequence file in FASTA format.

@@ -4,6 +4,9 @@
 # RandProt is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with RandProt.  If not, see <http://www.gnu.org/licenses/>.
 
+# core Perl modules
+use FindBin ();
+# local modules
 use lib '.';
 use ProtKmer;
 use ProtMarkov;
@@ -15,11 +18,11 @@ use strict;
 my ($fiFasta) = @ARGV;
 
 unless ($fiFasta) {
-    print "# $0: Compute a weak upper bound on k for k-mer analysis
-# RandProt ".(sprintf '%0.2f', $ProtMarkov::VERSION)." - https://github.com/alexviiia/RandProt
+    print "# $FindBin::Script: Compute a weak upper bound on k for k-mer analysis
+# " . ProtMarkov::version_string() . "
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Usage: perl -w $0 <input FASTA>
+Usage: perl -w $FindBin::Script <input FASTA>
 
 The required inputs are
     <input FASTA>   Input protein sequence file in FASTA format.

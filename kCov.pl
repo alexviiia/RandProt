@@ -4,6 +4,9 @@
 # RandProt is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with RandProt.  If not, see <http://www.gnu.org/licenses/>.
 
+# core Perl modules
+use FindBin ();
+# local modules
 use lib '.';
 use ProtKmer;
 use ProtMarkov;
@@ -15,11 +18,11 @@ use strict;
 my ($fiFasta, $k) = @ARGV;
 
 unless ($k) {
-    print "# $0: Compute percentage of k-mers observed in a proteome
-# RandProt ".(sprintf '%0.2f', $ProtMarkov::VERSION)." - https://github.com/alexviiia/RandProt
+    print "# $FindBin::Script: Compute percentage of k-mers observed in a proteome
+# " . ProtMarkov::version_string() . "
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Usage: perl -w $0 <input FASTA> <k>
+Usage: perl -w $FindBin::Script <input FASTA> <k>
 
 The required inputs are
     <input FASTA>   Input protein sequence file in FASTA format.

@@ -5,18 +5,19 @@
 # You should have received a copy of the GNU General Public License along with RandProt.  If not, see <http://www.gnu.org/licenses/>.
 
 package ProtMarkov;
-our $VERSION = 1.03;
-
-# 2015-03-02 v1.01
-# - for $n==1, now suffix .RAND\d+ isn't added (because it's trivial, makes sense to keep it simple)
-# 2015-06-04 (still v1.01, hadn't been posted yet)
-# - debugged $n==1 case (just now tested code, now it definitely works)
+our $VERSION = '1.04';
+# for help messages
+our $website = 'https://github.com/alexviiia/RandProt';
 
 use lib '.';
 use FileGz;
 use strict;
 
 # simple and efficient code to generate random sequences given a precomputed kmer and sequence length distribution.
+
+sub version_string {
+    return "RandProt $VERSION - $website";
+}
 
 # constants
 # process only standard amino acids, others are a minority and treating them specially doesn't really change distributions overall, but it does make everything a lot slower

@@ -155,7 +155,7 @@ perl -w kMax.pl
 ```
 ```
 # kMax.pl: Compute a weak upper bound on k for k-mer analysis
-# RandProt 1.03 - https://github.com/alexviiia/RandProt
+# RandProt 1.04 - https://github.com/alexviiia/RandProt
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Usage: perl -w kMax.pl <input FASTA>
@@ -195,7 +195,7 @@ perl -w kCov.pl
 ```
 ```
 # kCov.pl: Compute percentage of k-mers observed in a proteome
-# RandProt 1.03 - https://github.com/alexviiia/RandProt
+# RandProt 1.04 - https://github.com/alexviiia/RandProt
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Usage: perl -w kCov.pl <input FASTA> <k>
@@ -256,7 +256,7 @@ perl -w randProt.pl
 ```
 ```
 # randProt.pl: Make random protein sequences from a high-order Markov model
-# RandProt 1.03 - https://github.com/alexviiia/RandProt
+# RandProt 1.04 - https://github.com/alexviiia/RandProt
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Usage: perl -w randProt.pl <input FASTA> <output FASTA> <k> <n>
