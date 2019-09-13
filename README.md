@@ -28,6 +28,8 @@ Additionally, k-mers with ambiguous amino acid codes (B, J, X, Z) are always ign
 
 # Installation
 
+## Dependencies 
+
 You'll need 
 
 - Perl 5
@@ -51,7 +53,7 @@ git pull
 
 ## Running scripts from arbitrary directories
 
-Each script can be run easily from the directory that contains it (and its `*.pm` perl module dependencies).
+Each script can be run easily from the directory that contains it (and its `*.pm` Perl module dependencies).
 For example, if you cloned this repository onto the local directory `RandProt/`, on a terminal you can run one of the help messages by typing:
 ```bash
 cd RandProt/ 
@@ -112,13 +114,13 @@ This repository contains the following sample files:
 
 Sample input:
 
-- [sample/PLAF7.fa](sample/PLAF7.fa): the *Plasmodium falciparum* proteome from [PlasmoDB](http://plasmodb.org/plasmo/) version 11.0, with pseudogenes removed, containing 5441 proteins.
+- [`sample/PLAF7.fa`](sample/PLAF7.fa): the *Plasmodium falciparum* proteome from [PlasmoDB](http://plasmodb.org/plasmo/) version 11.0, with pseudogenes removed, containing 5441 proteins.
 
 Sample outputs:
 
-- [sample/PLAF7.k3.n1.fa](sample/PLAF7.k3.n1.fa): Output from `randProt.pl` with `k = 3` and `n = 1` (see below).
+- [`sample/PLAF7.k3.n1.fa`](sample/PLAF7.k3.n1.fa): Output from `randProt.pl` with `k = 3` and `n = 1` (see below).
   Note IDs are the same as input (no extra suffixes).
-- [sample/PLAF7.k3.n2.fa](sample/PLAF7.k3.n2.fa): Output from `randProt.pl` with `k = 3` and `n = 2` (see below).
+- [`sample/PLAF7.k3.n2.fa`](sample/PLAF7.k3.n2.fa): Output from `randProt.pl` with `k = 3` and `n = 2` (see below).
   Note IDs have extra suffixes (counting replicates).
 
 
